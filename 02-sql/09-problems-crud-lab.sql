@@ -76,6 +76,6 @@ SELECT * FROM `employees_departments`;
 
 SHOW VARIABLES LIKE "secure_file_priv";
 
-SELECT JSON_OBJECT('id', `id`, 'fName', `first_name`,'lName', `last_name`)
+SELECT JSON_ARRAYAGG(JSON_OBJECT('id', `id`, 'fName', `first_name`,'lName', `last_name`))
 FROM `employees` INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/employees.json';
 
