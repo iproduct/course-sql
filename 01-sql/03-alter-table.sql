@@ -23,3 +23,12 @@ ADD COLUMN `middle_name` VARCHAR(45) NOT NULL DEFAULT '' AFTER `first_name`;
 
 ALTER TABLE `employees`
 CHANGE COLUMN `middle_name` `middle_name` VARCHAR(100) NOT NULL DEFAULT '' ;
+
+ALTER TABLE `employees` DROP COLUMN `last_login_time`;
+
+ALTER TABLE `employees` ADD COLUMN `last_login_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE `employees` MODIFY COLUMN `last_login_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+ALTER TABLE `employees`
+CHANGE COLUMN `last_login_time` `last_login_timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP; 

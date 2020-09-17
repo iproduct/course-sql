@@ -1,0 +1,4 @@
+SHOW CREATE TABLE `employees`;
+SHOW ENGINES;
+
+SHOW TABLE STATUS LIKE 'employees';
