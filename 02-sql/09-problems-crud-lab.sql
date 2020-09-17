@@ -74,6 +74,9 @@ FROM `employees` AS e JOIN `departments` AS d ON e.`department_id` =  d.`id`;
 
 SELECT * FROM `employees_departments`;
 
+ALTER TABLE `employees`
+ADD CONSTRAINT min_salary CHECK (`salary` > 600);
+
 SHOW VARIABLES LIKE "secure_file_priv";
 
 SELECT JSON_ARRAYAGG(JSON_OBJECT('id', `id`, 'fName', `first_name`,'lName', `last_name`))
