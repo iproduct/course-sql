@@ -37,6 +37,16 @@ WHERE  `title` RLIKE '(?i)^.*\\sthe\\s.*$';
 SELECT `id`, `title` FROM `books` 
 WHERE  REGEXP_LIKE(`title`, '(?i)^.*\\sthe\\s.*$');
 
-SELECT REGEXP_REPLACE(`title`, '\\s[Tt]he|[Tt]he\\s', ' *** ') AS 'Title' 
+SELECT LTRIM(REGEXP_REPLACE(`title`, '\\s[Tt]he|[Tt]he\\s', ' *** ')) AS 'Title' 
 FROM `books` 
 WHERE REGEXP_LIKE(`title`, '(?i)^.*the.*$');
+
+SELECT CASE `id` 
+	WHEN 1 THEN 'one' 
+	WHEN 2 THEN 'two' 
+	WHEN 3 THEN 'three'
+	WHEN 4 THEN 'four'
+	ELSE 'more ...' 
+END AS `Case Expression`,
+CONCAT_WS(' ', `first_name`, `last_name`) AS `name`
+FROM `authors`; 
