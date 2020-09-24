@@ -21,5 +21,22 @@ FROM `books`;
 SELECT ROUND(SUM(`cost`), -2) AS `Total Cost` FROM `books`;
 
 SELECT CONCAT(`first_name`, ' ', `last_name`) AS `Name`, 
-TIMESTAMPDIFF(YEAR, `born`, IFNULL(`died`, NOW())) AS `Days Lived` 
+DATE_FORMAT(`born`, '%b %D, %Y') AS `Born`, 
+DATE_FORMAT(`died`, '%b %D, %Y') `Died`,
+TIMESTAMPDIFF(YEAR, `born`, IFNULL(`died`, NOW())) AS `Years Lived` 
 FROM `authors`;
+
+SELECT `title` FROM `books` 
+WHERE `title` LIKE '%Harry Potter%';
+
+
+SELECT `id`, `title` FROM `books` 
+WHERE  `title` REGEXP '(?i)^.*\\sthe\\s.*$';
+SELECT `id`, `title` FROM `books` 
+WHERE  `title` RLIKE '(?i)^.*\\sthe\\s.*$';
+SELECT `id`, `title` FROM `books` 
+WHERE  REGEXP_LIKE(`title`, '(?i)^.*\\sthe\\s.*$');
+
+SELECT REGEXP_REPLACE(`title`, '\\s[Tt]he|[Tt]he\\s', ' *** ') AS 'Title' 
+FROM `books` 
+WHERE REGEXP_LIKE(`title`, '(?i)^.*the.*$');
