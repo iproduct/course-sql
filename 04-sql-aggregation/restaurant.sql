@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS restaurant;
 CREATE DATABASE IF NOT EXISTS restaurant;
 use restaurant;
 
